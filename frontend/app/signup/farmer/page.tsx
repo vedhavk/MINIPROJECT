@@ -43,10 +43,10 @@ export default function FarmerSignup() {
 
         <Card className="bg-white shadow-xl border-slate-200">
           <CardHeader className="text-center pb-4">
-            <div className="mx-auto mb-4 w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="mx-auto mb-4 w-16 h-16 bg-[#00a693] rounded-2xl flex items-center justify-center shadow-lg">
               <Sprout className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold text-slate-800">
+            <CardTitle className="text-2xl font-bold text-slate-800 font-serif">
               Create Farmer Account
             </CardTitle>
             <p className="text-sm text-slate-600 mt-2">
@@ -56,6 +56,7 @@ export default function FarmerSignup() {
 
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* ... (fields remain the same) */}
               <div>
                 <label
                   htmlFor="fullName"
@@ -182,14 +183,14 @@ export default function FarmerSignup() {
                   I agree to the{" "}
                   <Link
                     href="/terms"
-                    className="text-green-600 hover:text-green-700 hover:underline"
+                    className="text-[#00a693] hover:opacity-80 hover:underline"
                   >
                     Terms of Service
                   </Link>{" "}
                   and{" "}
                   <Link
                     href="/privacy"
-                    className="text-green-600 hover:text-green-700 hover:underline"
+                    className="text-[#00a693] hover:opacity-80 hover:underline"
                   >
                     Privacy Policy
                   </Link>
@@ -198,7 +199,7 @@ export default function FarmerSignup() {
 
               <Button
                 type="submit"
-                className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-5 rounded-lg"
+                className="w-full bg-[#00a693] hover:opacity-90 text-white font-medium py-5 rounded-lg"
               >
                 Create Account
               </Button>
@@ -208,7 +209,7 @@ export default function FarmerSignup() {
               Already have an account?{" "}
               <Link
                 href="/login/farmer"
-                className="text-green-600 hover:text-green-700 font-semibold hover:underline"
+                className="text-[#00a693] hover:opacity-80 font-semibold hover:underline"
               >
                 Sign in
               </Link>

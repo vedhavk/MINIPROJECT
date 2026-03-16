@@ -33,10 +33,10 @@ export default function AdminLogin() {
 
         <Card className="bg-white shadow-xl border-slate-200">
           <CardHeader className="text-center pb-4">
-            <div className="mx-auto mb-4 w-16 h-16 bg-slate-700 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="mx-auto mb-4 w-16 h-16 bg-[#334155] rounded-2xl flex items-center justify-center shadow-lg">
               <Shield className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold text-slate-800">
+            <CardTitle className="text-2xl font-bold text-slate-800 font-serif">
               System Admin Login
             </CardTitle>
             <p className="text-sm text-slate-600 mt-2">
@@ -100,21 +100,13 @@ export default function AdminLogin() {
 
               <Button
                 type="submit"
-                className="w-full bg-slate-700 hover:bg-slate-800 text-white font-medium py-5 rounded-lg"
+                className="w-full bg-[#334155] hover:opacity-90 text-white font-medium py-5 rounded-lg"
               >
                 Sign In
               </Button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-slate-600">
-              Don&apos;t have an account?{" "}
-              <Link
-                href="/signup?role=admin"
-                className="text-slate-700 hover:text-slate-800 font-semibold hover:underline"
-              >
-                Create account
-              </Link>
-            </div>
+
           </CardContent>
         </Card>
       </div>

@@ -44,10 +44,10 @@ export default function VeterinarianSignup() {
 
         <Card className="bg-white shadow-xl border-slate-200">
           <CardHeader className="text-center pb-4">
-            <div className="mx-auto mb-4 w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="mx-auto mb-4 w-16 h-16 bg-[#334155] rounded-2xl flex items-center justify-center shadow-lg">
               <Stethoscope className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold text-slate-800">
+            <CardTitle className="text-2xl font-bold text-slate-800 font-serif">
               Create Veterinarian Account
             </CardTitle>
             <p className="text-sm text-slate-600 mt-2">
@@ -57,6 +57,7 @@ export default function VeterinarianSignup() {
 
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* ... (fields remain same) */}
               <div>
                 <label
                   htmlFor="fullName"
@@ -202,14 +203,14 @@ export default function VeterinarianSignup() {
                   I agree to the{" "}
                   <Link
                     href="/terms"
-                    className="text-blue-600 hover:text-blue-700 hover:underline"
+                    className="text-[#334155] hover:opacity-80 hover:underline"
                   >
                     Terms of Service
                   </Link>{" "}
                   and{" "}
                   <Link
                     href="/privacy"
-                    className="text-blue-600 hover:text-blue-700 hover:underline"
+                    className="text-[#334155] hover:opacity-80 hover:underline"
                   >
                     Privacy Policy
                   </Link>
@@ -218,7 +219,7 @@ export default function VeterinarianSignup() {
 
               <Button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-5 rounded-lg"
+                className="w-full bg-[#334155] hover:opacity-90 text-white font-medium py-5 rounded-lg"
               >
                 Create Account
               </Button>
@@ -228,7 +229,7 @@ export default function VeterinarianSignup() {
               Already have an account?{" "}
               <Link
                 href="/login/veterinarian"
-                className="text-blue-600 hover:text-blue-700 font-semibold hover:underline"
+                className="text-[#334155] hover:opacity-80 font-semibold hover:underline"
               >
                 Sign in
               </Link>
