@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sprout, Stethoscope, Shield, ArrowLeft } from "lucide-react";
+import { Sprout, Stethoscope, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -23,36 +23,28 @@ export default function SignupPage() {
       case "farmer":
         return {
           icon: <Sprout className="w-8 h-8 text-white" />,
-          bgColor: "bg-green-500",
-          buttonColor: "bg-green-500 hover:bg-green-600",
-          textColor: "text-green-600",
+          bgColor: "bg-[#00a693]",
+          buttonColor: "bg-[#00a693] hover:opacity-90",
+          textColor: "text-[#00a693]",
           label: "Farm Name",
           placeholder: "Green Valley Farm",
         };
       case "veterinarian":
         return {
           icon: <Stethoscope className="w-8 h-8 text-white" />,
-          bgColor: "bg-blue-500",
-          buttonColor: "bg-blue-500 hover:bg-blue-600",
-          textColor: "text-blue-600",
+          bgColor: "bg-[#334155]",
+          buttonColor: "bg-[#334155] hover:opacity-90",
+          textColor: "text-[#334155]",
           label: "License Number",
           placeholder: "VET-12345",
         };
-      case "admin":
-        return {
-          icon: <Shield className="w-8 h-8 text-white" />,
-          bgColor: "bg-slate-700",
-          buttonColor: "bg-slate-700 hover:bg-slate-800",
-          textColor: "text-slate-700",
-          label: "Organization",
-          placeholder: "Duck Track Inc.",
-        };
+
       default:
         return {
           icon: <Sprout className="w-8 h-8 text-white" />,
-          bgColor: "bg-green-500",
-          buttonColor: "bg-green-500 hover:bg-green-600",
-          textColor: "text-green-600",
+          bgColor: "bg-[#00a693]",
+          buttonColor: "bg-[#00a693] hover:opacity-90",
+          textColor: "text-[#00a693]",
           label: "Farm Name",
           placeholder: "Green Valley Farm",
         };
@@ -92,7 +84,7 @@ export default function SignupPage() {
             >
               {config.icon}
             </div>
-            <CardTitle className="text-2xl font-bold text-slate-800">
+            <CardTitle className="text-2xl font-bold text-slate-800 font-serif">
               Create Account
             </CardTitle>
             <p className="text-sm text-slate-600 mt-2">
@@ -107,21 +99,21 @@ export default function SignupPage() {
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   Select Your Role
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 gap-4">
                   <button
                     type="button"
                     onClick={() => setRole("farmer")}
                     className={`p-3 rounded-lg border-2 transition-all ${
                       role === "farmer"
-                        ? "border-green-500 bg-green-50"
+                        ? "border-[#00a693] bg-[#00a693]/10"
                         : "border-slate-200 hover:border-slate-300"
                     }`}
                   >
                     <Sprout
-                      className={`w-5 h-5 mx-auto mb-1 ${role === "farmer" ? "text-green-600" : "text-slate-400"}`}
+                      className={`w-5 h-5 mx-auto mb-1 ${role === "farmer" ? "text-[#00a693]" : "text-slate-400"}`}
                     />
                     <span
-                      className={`text-xs font-medium ${role === "farmer" ? "text-green-600" : "text-slate-600"}`}
+                      className={`text-xs font-medium ${role === "farmer" ? "text-[#00a693]" : "text-slate-600"}`}
                     >
                       Farmer
                     </span>
@@ -131,35 +123,17 @@ export default function SignupPage() {
                     onClick={() => setRole("veterinarian")}
                     className={`p-3 rounded-lg border-2 transition-all ${
                       role === "veterinarian"
-                        ? "border-blue-500 bg-blue-50"
+                        ? "border-[#334155] bg-[#334155]/10"
                         : "border-slate-200 hover:border-slate-300"
                     }`}
                   >
                     <Stethoscope
-                      className={`w-5 h-5 mx-auto mb-1 ${role === "veterinarian" ? "text-blue-600" : "text-slate-400"}`}
+                      className={`w-5 h-5 mx-auto mb-1 ${role === "veterinarian" ? "text-[#334155]" : "text-slate-400"}`}
                     />
                     <span
-                      className={`text-xs font-medium ${role === "veterinarian" ? "text-blue-600" : "text-slate-600"}`}
+                      className={`text-xs font-medium ${role === "veterinarian" ? "text-[#334155]" : "text-slate-600"}`}
                     >
                       Veterinarian
-                    </span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setRole("admin")}
-                    className={`p-3 rounded-lg border-2 transition-all ${
-                      role === "admin"
-                        ? "border-slate-700 bg-slate-50"
-                        : "border-slate-200 hover:border-slate-300"
-                    }`}
-                  >
-                    <Shield
-                      className={`w-5 h-5 mx-auto mb-1 ${role === "admin" ? "text-slate-700" : "text-slate-400"}`}
-                    />
-                    <span
-                      className={`text-xs font-medium ${role === "admin" ? "text-slate-700" : "text-slate-600"}`}
-                    >
-                      Admin
                     </span>
                   </button>
                 </div>

@@ -33,10 +33,10 @@ export default function VeterinarianLogin() {
 
         <Card className="bg-white shadow-xl border-slate-200">
           <CardHeader className="text-center pb-4">
-            <div className="mx-auto mb-4 w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="mx-auto mb-4 w-16 h-16 bg-[#334155] rounded-2xl flex items-center justify-center shadow-lg">
               <Stethoscope className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold text-slate-800">
+            <CardTitle className="text-2xl font-bold text-slate-800 font-serif">
               Veterinarian Login
             </CardTitle>
             <p className="text-sm text-slate-600 mt-2">
@@ -92,7 +92,7 @@ export default function VeterinarianLogin() {
                 </label>
                 <Link
                   href="/forgot-password"
-                  className="text-blue-600 hover:text-blue-700 hover:underline"
+                  className="text-[#334155] hover:opacity-80 hover:underline"
                 >
                   Forgot password?
                 </Link>
@@ -100,7 +100,7 @@ export default function VeterinarianLogin() {
 
               <Button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-5 rounded-lg"
+                className="w-full bg-[#334155] hover:opacity-90 text-white font-medium py-5 rounded-lg"
               >
                 Sign In
               </Button>
@@ -110,7 +110,7 @@ export default function VeterinarianLogin() {
               Don&apos;t have an account?{" "}
               <Link
                 href="/signup?role=veterinarian"
-                className="text-blue-600 hover:text-blue-700 font-semibold hover:underline"
+                className="text-[#334155] hover:opacity-80 font-semibold hover:underline"
               >
                 Create account
               </Link>
