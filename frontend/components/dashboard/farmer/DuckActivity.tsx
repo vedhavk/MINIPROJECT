@@ -27,24 +27,24 @@ export default function DuckActivity() {
   const cardStyles = useMemo(
     () => ({
       green: {
-        container: "bg-green-50 border-green-100",
-        icon: "bg-green-500",
-        value: "text-green-600",
+        container: "bg-green-50 dark:bg-emerald-900/20 border-green-100 dark:border-emerald-800",
+        icon: "bg-green-500 dark:bg-emerald-600",
+        value: "text-green-600 dark:text-emerald-400",
       },
       blue: {
-        container: "bg-blue-50 border-blue-100",
-        icon: "bg-blue-500",
-        value: "text-blue-600",
+        container: "bg-blue-50 dark:bg-blue-900/20 border-blue-100 dark:border-blue-800",
+        icon: "bg-blue-500 dark:bg-blue-600",
+        value: "text-blue-600 dark:text-blue-400",
       },
       yellow: {
-        container: "bg-yellow-50 border-yellow-100",
-        icon: "bg-yellow-500",
-        value: "text-yellow-600",
+        container: "bg-yellow-50 dark:bg-amber-900/20 border-yellow-100 dark:border-amber-800",
+        icon: "bg-yellow-500 dark:bg-amber-600",
+        value: "text-yellow-600 dark:text-amber-400",
       },
       purple: {
-        container: "bg-purple-50 border-purple-100",
-        icon: "bg-purple-500",
-        value: "text-purple-600",
+        container: "bg-purple-50 dark:bg-purple-900/20 border-purple-100 dark:border-purple-800",
+        icon: "bg-purple-500 dark:bg-purple-600",
+        value: "text-purple-600 dark:text-purple-400",
       },
     }),
     [],
@@ -68,8 +68,8 @@ export default function DuckActivity() {
   return (
     <div className="max-w-6xl">
       {/* Bar Chart */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-6">
-        <h3 className="text-lg font-bold text-slate-800 mb-6">
+      <div className="bg-white dark:bg-slate-900/80 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm mb-6">
+        <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-6">
           Today&apos;s Activity
         </h3>
         <div className="relative h-80">
@@ -83,30 +83,30 @@ export default function DuckActivity() {
                 >
                   <div className="relative w-full group">
                     <div
-                      className="bg-green-500 rounded-t-lg hover:bg-green-600 transition-all cursor-pointer relative"
+                      className="bg-green-500 dark:bg-emerald-500 rounded-t-lg hover:bg-green-600 dark:hover:bg-emerald-400 transition-all cursor-pointer relative"
                       style={{ height: `${height * 2.5}px` }}
                     >
-                      <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-white px-3 py-2 rounded-lg shadow-lg border border-slate-200 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        <p className="text-sm font-semibold text-slate-800">
+                      <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-white dark:bg-slate-800 px-3 py-2 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                        <p className="text-sm font-semibold text-slate-800 dark:text-white">
                           {item.time}
                         </p>
-                        <p className="text-xs text-green-600">
+                        <p className="text-xs text-green-600 dark:text-emerald-400">
                           Active Ducks: {item.active}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <p className="mt-3 text-sm font-medium text-slate-600">
+                  <p className="mt-3 text-sm font-medium text-slate-600 dark:text-slate-400">
                     {item.time}
                   </p>
                 </div>
               );
             })}
           </div>
-          <div className="absolute bottom-0 left-8 right-8 border-t-2 border-slate-200"></div>
+          <div className="absolute bottom-0 left-8 right-8 border-t-2 border-slate-200 dark:border-slate-700"></div>
           <div className="absolute bottom-4 right-8 flex items-center gap-2 text-xs">
-            <div className="w-3 h-3 bg-green-500 rounded"></div>
-            <span className="text-slate-600">Active Ducks</span>
+            <div className="w-3 h-3 bg-green-500 dark:bg-emerald-500 rounded"></div>
+            <span className="text-slate-600 dark:text-slate-400">Active Ducks</span>
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@ export default function DuckActivity() {
               >
                 <Icon className="w-6 h-6 text-white" />
               </div>
-              <p className="text-sm text-slate-600 mb-1">{metric.label}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">{metric.label}</p>
               <p className={`text-xl font-bold ${styles.value}`}>
                 {metric.value}
               </p>

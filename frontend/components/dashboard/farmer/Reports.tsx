@@ -44,35 +44,35 @@ export default function Reports() {
 
   return (
     <div className="max-w-5xl">
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-slate-800 mb-4">
+      <div className="bg-white dark:bg-slate-900/80 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-4">
           Available Reports
         </h3>
         {isLoading && (
-          <p className="text-sm text-slate-500">Loading reports...</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Loading reports...</p>
         )}
         {!isLoading && errorMessage && (
-          <p className="text-sm text-slate-500">{errorMessage}</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">{errorMessage}</p>
         )}
         {!isLoading && !errorMessage && reports.length === 0 && (
-          <p className="text-sm text-slate-500">No reports found.</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">No reports found.</p>
         )}
         <div className="space-y-4">
           {reports.map((report) => (
             <div
               key={report.id}
-              className="flex items-center justify-between p-4 border border-slate-200 rounded-lg hover:border-green-300 hover:bg-green-50/30 transition-all"
+              className="flex items-center justify-between p-4 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 rounded-lg hover:border-green-300 dark:hover:border-emerald-600 hover:bg-green-50/30 dark:hover:bg-emerald-900/20 transition-all"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-green-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-green-600 dark:text-emerald-500" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-800">
+                  <h4 className="font-semibold text-slate-800 dark:text-white">
                     {report.title}
                   </h4>
                   {(report.summary || report.date) && (
-                    <p className="text-sm text-slate-600">
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
                       {report.summary ?? report.date}
                     </p>
                   )}
@@ -80,7 +80,7 @@ export default function Reports() {
               </div>
               <Button
                 variant="outline"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
                 onClick={() => handleDownloadReport(report.id)}
               >
                 <Download className="w-4 h-4" />
