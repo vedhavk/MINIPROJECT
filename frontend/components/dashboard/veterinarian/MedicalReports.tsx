@@ -11,9 +11,9 @@ import {
 } from "@/lib/veterinarianMockApi";
 
 const statusStyles = {
-  Critical: "bg-rose-600 text-white",
-  Complete: "bg-slate-100 text-slate-700",
-  Review: "bg-slate-100 text-slate-700",
+  Critical: "bg-rose-600 dark:bg-rose-900/40 text-white dark:text-rose-400",
+  Complete: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300",
+  Review: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300",
 };
 
 export default function MedicalReports() {
@@ -44,23 +44,23 @@ export default function MedicalReports() {
   }
 
   return (
-    <section className="rounded-2xl bg-white p-5 shadow-sm">
-      <h3 className="mb-6 text-xl font-bold text-slate-900">
+    <section className="rounded-2xl bg-white dark:bg-slate-900/80 p-5 shadow-sm border border-slate-200 dark:border-slate-800">
+      <h3 className="mb-6 text-xl font-bold text-slate-900 dark:text-white">
         Recent Medical Reports
       </h3>
       <div className="space-y-4">
         {medicalReports.map((report) => (
           <div
             key={report.id}
-            className="flex flex-col gap-4 rounded-2xl bg-slate-50 p-4 lg:flex-row lg:items-center lg:justify-between"
+            className="flex flex-col gap-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 p-4 lg:flex-row lg:items-center lg:justify-between"
           >
             <div className="flex items-start gap-4">
-              <div className="rounded-xl bg-blue-100 p-3">
-                <FileText className="h-8 w-8 text-blue-600" />
+              <div className="rounded-xl bg-blue-100 dark:bg-blue-900/30 p-3">
+                <FileText className="h-8 w-8 text-blue-600 dark:text-blue-500" />
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <h4 className="text-2xl font-bold text-slate-900">
+                  <h4 className="text-2xl font-bold text-slate-900 dark:text-white">
                     {report.title}
                   </h4>
                   <span
@@ -69,12 +69,12 @@ export default function MedicalReports() {
                     {report.status}
                   </span>
                 </div>
-                <p className="mt-2 text-lg text-slate-500">{report.date}</p>
+                <p className="mt-2 text-lg text-slate-500 dark:text-slate-400">{report.date}</p>
               </div>
             </div>
             <Button
               variant="outline"
-              className="gap-2 self-start lg:self-center"
+              className="gap-2 self-start lg:self-center dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
               onClick={() => handleDownload(report.id)}
             >
               <Download className="h-4 w-4" />

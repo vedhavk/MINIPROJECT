@@ -25,6 +25,7 @@ import {
   getMedicalReports,
   generateVetSummaryReport,
 } from "@/lib/veterinarianMockApi";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const menuItems = [
   { id: "health", label: "Health Monitoring", icon: Stethoscope },
@@ -92,11 +93,11 @@ export default function VeterinarianDashboardPage() {
   const currentPage = pageMeta[activeMenu];
 
   return (
-    <div className="flex min-h-screen bg-[linear-gradient(90deg,#f4f3fb_0%,#eef6f2_100%)]">
-      <aside className="flex w-64 flex-col border-r border-slate-200 bg-white">
-        <div className="border-b border-slate-200 p-6">
+    <div className="flex min-h-screen bg-[linear-gradient(90deg,#f4f3fb_0%,#eef6f2_100%)] dark:bg-[linear-gradient(90deg,#0a0a1a_0%,#051510_100%)] transition-colors duration-300">
+      <aside className="flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div className="border-b border-slate-200 dark:border-slate-800 p-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-2xl bg-linear-to-br from-blue-500 to-violet-500 p-2.5 shadow-sm">
+            <div className="rounded-2xl bg-linear-to-br from-blue-500 to-violet-500 p-2.5 shadow-sm dark:shadow-none">
               <svg
                 className="h-6 w-6 text-white"
                 fill="currentColor"
@@ -106,14 +107,14 @@ export default function VeterinarianDashboardPage() {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-blue-600">Duck Track</h1>
-              <p className="text-sm text-slate-500">Veterinarian Panel</p>
+              <h1 className="text-3xl font-bold text-blue-600 dark:text-blue-500">Duck Track</h1>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Veterinarian Panel</p>
             </div>
           </div>
         </div>
 
         <nav className="flex-1 p-4">
-          <p className="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p className="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
             Veterinarian Menu
           </p>
           <div className="mt-4 space-y-2">
@@ -127,12 +128,12 @@ export default function VeterinarianDashboardPage() {
                   onClick={() => setActiveMenu(item.id)}
                   className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-all ${
                     isActive
-                      ? "bg-linear-to-r from-blue-600 to-fuchsia-600 text-white shadow-md"
-                      : "text-slate-700 hover:bg-slate-100"
+                      ? "bg-linear-to-r from-blue-600 to-fuchsia-600 text-white shadow-md dark:shadow-none"
+                      : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                   }`}
                 >
                   <Icon
-                    className={`h-5 w-5 ${isActive ? "text-white" : "text-slate-600"}`}
+                    className={`h-5 w-5 ${isActive ? "text-white" : "text-slate-600 dark:text-slate-400"}`}
                   />
                   <span className="text-lg font-semibold">{item.label}</span>
                 </button>
@@ -142,16 +143,16 @@ export default function VeterinarianDashboardPage() {
         </nav>
 
         <div className="p-4">
-          <div className="rounded-2xl border border-blue-100 bg-violet-50 p-4">
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/40 bg-violet-50 dark:bg-violet-950/20 p-4">
             <div className="flex items-center gap-3">
               <div className="rounded-xl bg-blue-600 p-3">
                 <Stethoscope className="h-5 w-5 text-white" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-900">
+                <p className="text-sm font-semibold text-slate-900 dark:text-slate-200">
                   Veterinarian Account
                 </p>
-                <p className="text-xs text-slate-600">Professional care</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400">Professional care</p>
               </div>
             </div>
           </div>
@@ -159,21 +160,22 @@ export default function VeterinarianDashboardPage() {
       </aside>
 
       <main className="flex flex-1 flex-col">
-        <header className="flex items-center justify-between border-b border-slate-200 bg-white px-8 py-5">
+        <header className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl px-8 py-5">
           <div>
-            <h2 className="text-5xl font-bold tracking-tight text-slate-950">
+            <h2 className="text-5xl font-bold tracking-tight text-slate-950 dark:text-white">
               {currentPage.title}
             </h2>
-            <p className="mt-2 text-xl text-slate-500">
+            <p className="mt-2 text-xl text-slate-500 dark:text-slate-400">
               {currentPage.subtitle}
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
             {activeMenu === "health" && (
               <Button
                 onClick={handleGenerateReport}
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
               >
                 <WandSparkles className="mr-2 h-4 w-4" />
                 Generate Report
@@ -182,7 +184,7 @@ export default function VeterinarianDashboardPage() {
             {activeMenu === "reports" && (
               <Button
                 onClick={handleCreateNewReport}
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
               >
                 <FileText className="mr-2 h-4 w-4" />
                 Create New Report
@@ -192,7 +194,7 @@ export default function VeterinarianDashboardPage() {
             <Link href="/">
               <Button
                 variant="ghost"
-                className="gap-2 text-slate-600 hover:text-slate-900"
+                className="gap-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
               >
                 <LogOut className="h-4 w-4" />
                 Logout

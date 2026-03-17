@@ -7,6 +7,7 @@ import { Shield, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -21,25 +22,28 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 flex items-center justify-center p-4 transition-colors duration-300">
+      <div className="absolute top-4 right-4 md:top-8 md:right-8">
+        <ThemeToggle />
+      </div>
       <div className="w-full max-w-md">
         <Link
           href="/"
-          className="inline-flex items-center text-slate-600 hover:text-slate-800 mb-6 transition-colors"
+          className="inline-flex items-center text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 mb-6 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to home
         </Link>
 
-        <Card className="bg-white shadow-xl border-slate-200">
+        <Card className="bg-white dark:bg-slate-900/80 backdrop-blur-xl shadow-xl border-slate-200 dark:border-slate-800">
           <CardHeader className="text-center pb-4">
-            <div className="mx-auto mb-4 w-16 h-16 bg-[#334155] rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="mx-auto mb-4 w-16 h-16 bg-[#334155] dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-lg">
               <Shield className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold text-slate-800 font-serif">
+            <CardTitle className="text-2xl font-bold text-slate-800 dark:text-white font-serif">
               System Admin Login
             </CardTitle>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
               Access system management and configuration
             </p>
           </CardHeader>
@@ -49,7 +53,7 @@ export default function AdminLogin() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-slate-700 mb-2"
+                  className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                 >
                   Email Address
                 </label>
@@ -60,14 +64,14 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full"
+                  className="w-full bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-slate-700 mb-2"
+                  className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                 >
                   Password
                 </label>
@@ -78,21 +82,21 @@ export default function AdminLogin() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full"
+                  className="w-full bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white"
                 />
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center text-slate-600">
+                <label className="flex items-center text-slate-600 dark:text-slate-400">
                   <input
                     type="checkbox"
-                    className="mr-2 rounded border-slate-300"
+                    className="mr-2 rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950"
                   />
                   Remember me
                 </label>
                 <Link
                   href="/forgot-password"
-                  className="text-slate-600 hover:text-slate-700 hover:underline"
+                  className="text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:underline"
                 >
                   Forgot password?
                 </Link>
@@ -100,7 +104,7 @@ export default function AdminLogin() {
 
               <Button
                 type="submit"
-                className="w-full bg-[#334155] hover:opacity-90 text-white font-medium py-5 rounded-lg"
+                className="w-full bg-[#334155] dark:bg-slate-700 hover:bg-slate-800 dark:hover:bg-slate-600 text-white font-medium py-5 rounded-lg"
               >
                 Sign In
               </Button>
