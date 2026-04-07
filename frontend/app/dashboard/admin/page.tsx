@@ -22,6 +22,7 @@ import {
   SystemSettings,
   UserManagement,
 } from "@/components/dashboard/admin";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const menuItems = [
   { id: "live", label: "Live Detection", icon: Camera },
@@ -66,11 +67,11 @@ export default function AdminDashboardPage() {
   const currentPage = pageMeta[activeMenu];
 
   return (
-    <div className="flex min-h-screen bg-[linear-gradient(90deg,#f3f6fc_0%,#edf4f8_100%)]">
-      <aside className="flex w-72 flex-col border-r border-slate-800 bg-slate-950 text-white">
-        <div className="border-b border-slate-800 p-6">
+    <div className="flex min-h-screen bg-[linear-gradient(90deg,#f3f6fc_0%,#edf4f8_100%)] dark:bg-[linear-gradient(90deg,#020617_0%,#0f172a_100%)] transition-colors duration-300">
+      <aside className="flex w-72 flex-col border-r border-slate-800 dark:border-slate-800/50 bg-slate-950 dark:bg-slate-900/50 text-white backdrop-blur-xl">
+        <div className="border-b border-slate-800 dark:border-slate-800/50 p-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-2xl bg-slate-800 p-2">
+            <div className="rounded-2xl bg-slate-800 dark:bg-slate-800/80 p-2">
               <svg
                 className="h-6 w-6 text-white"
                 fill="currentColor"
@@ -101,8 +102,8 @@ export default function AdminDashboardPage() {
                   onClick={() => setActiveMenu(item.id)}
                   className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-all ${
                     isActive
-                      ? "bg-slate-800 text-white ring-1 ring-slate-700"
-                      : "text-slate-300 hover:bg-slate-900"
+                      ? "bg-slate-800 dark:bg-slate-800/80 text-white ring-1 ring-slate-700 dark:ring-slate-700/50"
+                      : "text-slate-300 hover:bg-slate-900 dark:hover:bg-slate-800/50"
                   }`}
                 >
                   <Icon className="h-5 w-5" />
@@ -129,22 +130,25 @@ export default function AdminDashboardPage() {
       </aside>
 
       <main className="flex flex-1 flex-col">
-        <header className="flex items-center justify-between border-b border-slate-200 bg-white px-8 py-5">
+        <header className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl px-8 py-5">
           <div>
-            <h2 className="text-4xl font-bold text-slate-900">
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
               {currentPage.title}
             </h2>
-            <p className="mt-2 text-slate-500">{currentPage.subtitle}</p>
+            <p className="mt-2 text-slate-500 dark:text-slate-400">{currentPage.subtitle}</p>
           </div>
-          <Link href="/">
-            <Button
-              variant="ghost"
-              className="gap-2 text-slate-600 hover:text-slate-900"
-            >
-              <LogOut className="h-4 w-4" />
-              Logout
-            </Button>
-          </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Link href="/">
+              <Button
+                variant="ghost"
+                className="gap-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+              >
+                <LogOut className="h-4 w-4" />
+                Logout
+              </Button>
+            </Link>
+          </div>
         </header>
 
         <div className="flex-1 p-4 md:p-6 lg:p-8">
