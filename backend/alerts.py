@@ -62,12 +62,20 @@ def _send(to_email: str, subject: str, html_body: str) -> bool:
 
 # ── Farmer alert ──────────────────────────────────────────────────────────────
 
+<<<<<<< HEAD
 FARMER_SUBJECT = " DuckTrack Disease Alert – Immediate Action Required"
+=======
+FARMER_SUBJECT = "🚨 DuckTrack Disease Alert – Immediate Action Required"
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
 
 FARMER_HTML_TEMPLATE = """\
 <html><body style="font-family:Arial,sans-serif;color:#333;max-width:600px;margin:auto;">
   <div style="background:#c0392b;padding:20px;border-radius:8px 8px 0 0;">
+<<<<<<< HEAD
     <h2 style="color:#fff;margin:0;"> Duck Disease Alert</h2>
+=======
+    <h2 style="color:#fff;margin:0;">⚠️ Duck Disease Alert</h2>
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
   </div>
   <div style="padding:20px;border:1px solid #ddd;border-top:none;border-radius:0 0 8px 8px;">
     <p>Dear <strong>{name}</strong>,</p>
@@ -78,6 +86,7 @@ FARMER_HTML_TEMPLATE = """\
     </p>
     <h3 style="color:#c0392b;">What you should do immediately:</h3>
     <ul style="line-height:1.8;">
+<<<<<<< HEAD
       <li> <strong>Quarantine</strong> your flock – restrict all movement.</li>
       <li> Contact your nearest veterinary officer.</li>
       <li> Do not sell or transport ducks until further notice.</li>
@@ -86,6 +95,16 @@ FARMER_HTML_TEMPLATE = """\
     </ul>
     <p style="background:#fff3cd;padding:12px;border-radius:6px;">
          Detection location: <strong>Lat {latitude}, Lon {longitude}</strong>
+=======
+      <li>🔒 <strong>Quarantine</strong> your flock – restrict all movement.</li>
+      <li>🩺 Contact your nearest veterinary officer.</li>
+      <li>🚫 Do not sell or transport ducks until further notice.</li>
+      <li>🧼 Disinfect all equipment and water sources.</li>
+      <li>📋 Monitor for symptoms: lethargy, reduced appetite, unusual mortality.</li>
+    </ul>
+    <p style="background:#fff3cd;padding:12px;border-radius:6px;">
+      📍 Detection location: <strong>Lat {latitude}, Lon {longitude}</strong>
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
       &nbsp;|&nbsp; PIN: <strong>{pin_code}</strong>
     </p>
     <p style="color:#888;font-size:12px;margin-top:20px;">
@@ -114,7 +133,11 @@ def send_farmer_alert(
 
 # ── Veterinary alert ──────────────────────────────────────────────────────────
 
+<<<<<<< HEAD
 VET_SUBJECT = " DuckTrack Vet Alert – Disease Outbreak Heat Map"
+=======
+VET_SUBJECT = "🗺️ DuckTrack Vet Alert – Disease Outbreak Heat Map"
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
 
 VET_HTML_TEMPLATE = """\
 <html>
@@ -134,13 +157,21 @@ VET_HTML_TEMPLATE = """\
 </style>
 </head>
 <body>
+<<<<<<< HEAD
   <div class="header"><h2> Duck Disease Outbreak – Heat Map Alert</h2></div>
+=======
+  <div class="header"><h2>🗺️ Duck Disease Outbreak – Heat Map Alert</h2></div>
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
   <div class="body">
     <p>Dear Dr. <strong>{name}</strong>,</p>
     <p>A duck disease outbreak has been detected. The map below shows colour-coded risk zones.</p>
 
     <div class="info-box">
+<<<<<<< HEAD
          <strong>Infection site:</strong>
+=======
+      📍 <strong>Infection site:</strong>
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
       Lat <code>{latitude}</code>, Lon <code>{longitude}</code>
       &nbsp;|&nbsp; PIN: <strong>{pin_code}</strong>
     </div>
@@ -163,7 +194,11 @@ VET_HTML_TEMPLATE = """\
     <a class="btn"
        href="https://www.google.com/maps/search/?api=1&query={latitude},{longitude}"
        target="_blank">
+<<<<<<< HEAD
            Open in Google Maps
+=======
+      📍 Open in Google Maps
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
     </a>
 
     <!--

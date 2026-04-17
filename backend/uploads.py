@@ -32,7 +32,11 @@ from database import (
     OutbreakHistory,
 )
 from checker import detect_file_type, validate_file_size
+<<<<<<< HEAD
 from predict import predict_image, predict_video          # ← removed normalise_label
+=======
+from predict import predict_image, predict_video, normalise_label
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
 from alerts  import send_farmer_alert, send_vet_alert
 from dotenv  import load_dotenv
 
@@ -51,6 +55,7 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/farmer/login")
 
 
+<<<<<<< HEAD
 # ── Label normalisation ───────────────────────────────────────────────────────
 
 def normalise_label(label: str) -> str:
@@ -61,6 +66,8 @@ def normalise_label(label: str) -> str:
     return "diseased"
 
 
+=======
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
 # ── Auth ──────────────────────────────────────────────────────────────────────
 
 def get_current_user(
@@ -152,7 +159,11 @@ async def upload_file(
     else:
         result = predict_video(str(save_path))
 
+<<<<<<< HEAD
     prediction = normalise_label(result["prediction"])   # ← now calls local function
+=======
+    prediction = normalise_label(result["prediction"])
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
     confidence = result["confidence"]
 
     alerts_sent = None
@@ -201,8 +212,13 @@ async def upload_file(
         # ── 3. Broadcast emails ──────────────────────────────────────────────
         alerts_sent = _broadcast_all(db, latitude, longitude, pin_code)
 
+<<<<<<< HEAD
         total_sent          = len(alerts_sent["farmers"]) + len(alerts_sent["vets"])
         status_str          = "sent" if total_sent > 0 else "failed"
+=======
+        total_sent       = len(alerts_sent["farmers"]) + len(alerts_sent["vets"])
+        status_str       = "sent" if total_sent > 0 else "failed"
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
         record.alert_sent   = status_str
         history.alert_sent  = status_str
         db.commit()
@@ -223,7 +239,11 @@ async def upload_file(
 
 @router.get("/outbreak-history")
 def get_outbreak_history(
+<<<<<<< HEAD
     auth: tuple   = Depends(get_current_user),
+=======
+    auth: tuple  = Depends(get_current_user),
+>>>>>>> 9364d7a7519e50552f01048e76260558573712c4
     db:   Session = Depends(get_db),
 ):
     """
